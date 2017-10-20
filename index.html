@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+      #videoContainer {
+          box-sizing: border-box;
+          height: 100%;
+          overflow: hidden;
+          width: 100%;
+      }
+      video {
+          height: 100%;
+      }
+
+  </style>
+  <script>
+    setTimeout(function() {
+      var video = document.querySelector('video');
+
+      function startStream() {
+        // Get access to the camera!
+        if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+          // Not adding `{ audio: true }` since we only want video now
+          navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }  }).then(function(stream) {
+            video.src = window.URL.createObjectURL(stream);
+            /*video.play();*/
+          });
+        }
+      }
+
+      startStream();
+    }, 5000);
+  </script>
+</head>
+<body>
+<div id="videoContainer"><video autoplay class="screen"></video></div>
+</body>
+</html>
