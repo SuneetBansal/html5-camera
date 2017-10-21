@@ -4,13 +4,20 @@
   <style>
       #videoContainer {
           box-sizing: border-box;
-          height: 300px;
+          height: 100%;
           overflow: hidden;
-          width: 400px;
+          width: 100%;
+        position: relative;
       }
       #video {
           height: 100%;
       }
+    
+    .overlay {
+     position: absolute;
+      top: 50px;
+      left: 100px;
+    }
     
     #video {
     position: fixed; right: 0; bottom: 0;
@@ -80,6 +87,9 @@ if (elem.requestFullscreen) {
   </script>
 </head>
 <body>
-<div id="videoContainer"><video autoplay class="screen" id="video" aspectratio="3:2"></video></div>
+<div id="videoContainer">
+  <video autoplay class="screen" id="video" aspectratio="3:2"></video>
+  <div class="overlay">Please Take The Picture</div>
+  </div>
 </body>
 </html>
