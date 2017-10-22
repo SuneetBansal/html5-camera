@@ -8,6 +8,7 @@
     video, img {
       max-width:100%;
     }
+    
   </style>
 </head>
 <body>
@@ -36,8 +37,10 @@
 
       context = canvas.getContext('2d');
       context.drawImage(video, 0, 0, width, height);
+      video.style.display = 'none';
 
       img.src = canvas.toDataURL('image/png');
+      img.style.width = '80%';
       document.body.appendChild(img);
     }
 
